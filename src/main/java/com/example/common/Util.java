@@ -3,6 +3,8 @@ package com.example.common;
 import com.github.javafaker.Faker;
 import org.reactivestreams.Subscriber;
 
+import java.time.Duration;
+
 public class Util {
 
     public static Faker faker = Faker.instance();
@@ -16,5 +18,13 @@ public class Util {
 
     public static Faker getFaker() {
         return faker;
+    }
+
+    public static void sleepSeconds(int seconds){
+        try{
+            Thread.sleep(Duration.ofSeconds(seconds));
+        } catch (InterruptedException ex){
+            System.out.println("Error :- " + ex);
+        }
     }
 }
